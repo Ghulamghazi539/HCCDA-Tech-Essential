@@ -4,8 +4,7 @@ The Storage Services Lab on Huawei Cloud lets you practice hands-on how to use H
 
 **Huawei Service	**                         ** Type of Storage	 **                                    ** Use Case**
 
-EVS (Elastic Volume Service)
-
+**EVS (Elastic Volume Service)**
 Block Storage	      Attach disks to virtual machines (ECS)
 
 **OBS (Object Storage Service)**	
@@ -16,12 +15,8 @@ File Storage (NFS-based)	Shared access for multiple ECS instances
 
 These labs are part of Huawei's **Cloud Service Labs** under **KooLabs**, and they simulate real scenarios using Huawei’s live cloud dashboard.
 
-Huawei Service	Type of Storage	Use Case
-EVS (Elastic Volume Service)	Block Storage	Attach disks to virtual machines (ECS)
-OBS (Object Storage Service)	Object Storage	Store files, images, backups (like Google Drive/AWS S3)
-SFS (Scalable File Service)	File Storage (NFS-based)	Shared access for multiple ECS instances
+**Elastic Volume Service (EVS)** 
 
-Elastic Volume Service (EVS) Practice
 The first part of the lab focuses on EVS, which provides persistent block-level storage for Elastic Cloud Servers (ECSs). EVS disks function similarly to physical hard drives and are used to expand storage capacity for servers. The exercise demonstrates the entire lifecycle of an EVS disk.
 
 The process begins with setting up the network environment by creating a Virtual Private Cloud (VPC) and a subnet. Then, a Windows ECS is provisioned. Following this, a separate EVS data disk is purchased. A key concept highlighted is that EVS disks must be in the same Availability Zone (AZ) as the ECS to which they will be attached.
@@ -33,12 +28,14 @@ To demonstrate data persistence and disk portability, a test file is created on 
 The lab repeats a similar process for a Linux environment. A Linux ECS is created, and an EVS disk is attached. The guide provides a detailed walkthrough of the command-line procedures for initializing the disk in Linux. This involves using the fdisk utility to create a new partition on the disk (/dev/vdb), followed by the mkfs command to format the new partition with a file system like ext4. A mount point (a directory) is created, and the mount command is used to attach the file system to that directory. The exercise also covers how to configure automatic mounting at system startup by editing the /etc/fstab file, ensuring the disk is available after a reboot.
 
 Finally, the EVS section introduces the use of snapshots. A snapshot captures the state of an EVS disk at a specific point in time. The lab shows how to create a snapshot of the Linux data disk, and then create a brand new EVS disk from that snapshot. This new disk, when attached to an ECS, contains an exact copy of the data from the original disk at the time the snapshot was taken, demonstrating a powerful method for data backup, recovery, and cloning.
-Object Storage Service (OBS) Practice
 
-The second section shifts focus to OBS, HUAWEI CLOUD's service for storing massive amounts of unstructured data, such as documents, images, and videos. Unlike the block storage of EVS, OBS is an object storage system. The exercise covers the basic operations within OBS.
+**Object Storage Service (OBS):**
+
+The Second section shifts focus to OBS, HUAWEI CLOUD's service for storing massive amounts of unstructured data, such as documents, images, and videos. Unlike the block storage of EVS, OBS is an object storage system. The exercise covers the basic operations within OBS.
 The fundamental unit in OBS is the "bucket," a container for data. The lab guides the user through creating a bucket, specifying its region, storage class (e.g., Standard), and access policy (e.g., Private). Once the bucket is created, the user learns how to upload files from their local computer into the bucket. The process for downloading objects from the bucket back to a local machine is also shown, as is the procedure for deleting files and folders within the bucket. This section provides a foundational understanding of how to use the OBS console for basic data management tasks.
 
-Scalable File Service (SFS) Practice
+**Scalable File Service (SFS)** 
+
 The final part of the document covers SFS, which provides high-performance, shared file storage. SFS is ideal for use cases where multiple servers need to access and modify the same set of files simultaneously.
 The exercise demonstrates how to create an "SFS Turbo" file system within the previously established VPC. After the file system is created, the main task is to mount it on both a Linux and a Windows ECS.
 
