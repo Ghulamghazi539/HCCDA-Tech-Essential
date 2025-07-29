@@ -1,8 +1,8 @@
-#Computer Services:
+**Computer Services:**
 
 We explored how to set up and manage Elastic Cloud Servers (ECS) on HUAWEI CLOUD, focusing on creating both Windows and Linux ECS instances, modifying their specifications, and creating reusable private images for scalable deployments.
 
-**Part 1: Creating and Configuring ECS Instances**
+**Part 1**: Creating and Configuring ECS Instances
 
 **Step 1: Understanding the Lab Environment**
 
@@ -22,7 +22,7 @@ Subnet Name: subnet-WP
 
 Subnet CIDR: 192.168.0.0/24
 
-Step 3: Deploying ECS Instances
+**Step 3: Deploying ECS Instances**
 
 Go to Compute > Elastic Cloud Server > Buy ECS, and create a Windows-based ECS:
 
@@ -44,13 +44,13 @@ Image: CentOS 7.6 64-bit
 
 EIP: Auto assign
 
-Step 4: Remote Login to ECS Instances
+**Step 4: Remote Login to ECS Instances**
 
 Use Remote Login to access the Windows ECS.
 
 For Linux ECS (no GUI), log in using VNC, entering root as username and the configured password.
 
-Part 2: Modifying ECS Specifications
+**Part 2:** Modifying ECS Specifications
 
 To upgrade your ECS:
 
@@ -60,7 +60,7 @@ Select More > Modify Specifications, and update RAM from 4 GB to 8 GB.
 
 Submit and restart the ECS to apply the changes.
 
-Part 3: Creating a System Disk Image from an ECS
+**Part 3**: Creating a System Disk Image from an ECS
 
 This allows reuse of custom ECS configurations across multiple deployments.
 
@@ -96,7 +96,7 @@ Applying for an ECS Using a Private Image
 
 From the Private Images tab, click Apply for Server next to the desired image to launch a new ECS with the preconfigured setup.
 
-Part 4: Creating a Linux Private Image
+**Part 4**: Creating a Linux Private Image
 
 Linux ECS Configuration
 
@@ -120,7 +120,7 @@ Select ecs-linux and name the image (e.g., image-centos7.6).
 
 Submit and wait for the image to reach Normal status.
 
-Part 5: Sharing and Managing Images Across Tenants
+**Part 5**: Sharing and Managing Images Across Tenants
 
 Sharing an Image
 
