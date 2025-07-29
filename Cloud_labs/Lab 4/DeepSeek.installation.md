@@ -1,5 +1,7 @@
 # DeepSeek Installation
 
+**🚀 1. What Is the DeepSeek Lab on Huawei Cloud?**
+
 Huawei Cloud offers a "**Building a DeepSeek Inference System**" solution that automates provisioning and setup of the **DeepSeek‑R1 distilled model** on ECS instances via a CloudFormation-like stack. This lab typically takes **under 10 minutes** to deploy and about 5 minutes to initialize DeepSeek‑R1 using tools like Ollama 
 
 You’ll get a dedicated **Flexus X server**, a public IP, security groups, and pre-configured environment, accessible via **CloudShell** (**SSH port 22**)
@@ -13,15 +15,28 @@ You’ll get a dedicated **Flexus X server**, a public IP, security groups, and 
 **Security group rules** with ports for Ollama service (by default port 11434) and Dify Web UI
 (port 3000)   
 
-**Open-source DeepSeek‑R1‑Distill models** (1.5B, 7B, or 8 B)
+**Open-source DeepSeek‑R1‑Distill models** (1.5B, 7B, or 8 B)  
+
+**🛠️ 3. Deployment Steps**
 
 This Lab provides a step-by-step guide for deploying the DeepSeek 1.5B large language model (LLM) on a HUAWEI CLOUD Elastic Cloud Server (ECS) using the Ollama framework.
+
 The process begins with preparing the necessary cloud environment. This involves creating a specific type of ECS in the AP-Singapore region. The recommended configuration is a pay-per-use c6.xlarge.2 instance, which provides 4 vCPUs and 8 GiB of RAM, running on a CentOS 8.2 64-bit image. A crucial step in this setup is configuring the network to include a public Elastic IP (EIP) with a high bandwidth of 100 Mbit/s. This is to ensure that the large model files can be downloaded efficiently without timing out. Once the ECS is created, the user logs in using CloudShell.
+
+**Running DeepSeek with Ollama CLI**
 
 The next phase is the installation of Ollama, an open-source tool designed to simplify running LLMs on local or cloud servers. The guide presents two methods for installation. The first is the standard approach, using a curl command to run the official installation script from the Ollama website. However, acknowledging potential network issues, a second, more reliable method is provided: downloading a pre-packaged Ollama installation archive from a HUAWEI CLOUD Object Storage Service (OBS) bucket. This alternate method involves manually decompressing the package, creating a dedicated ollama system user, and setting up a systemd service to ensure Ollama runs correctly and starts on boot.
 
 With Ollama installed, the final step is to download and run the DeepSeek model. Similar to the Ollama installation, two options are offered. The first is to use the ollama pull deepseek-r1:1.5b command, which downloads the model directly from the official Ollama community registry. This can be slow depending on network conditions. The second, faster option is to download the complete model files from a backup stored in OBS. This method requires decompressing the model and moving the files into the correct directory structure that Ollama uses.
 After the model is successfully downloaded and placed, it can be run with the command ollama run deepseek-r1:1.5b. This command starts an interactive session in the terminal, allowing the user to begin conversing with the DeepSeek language model directly on their cloud server.
+
+**⏱️ 4. Time & Cost Estimates**
+
+**Deployment**: ~10 minutes
+
+**Download & initialization**: ~5–10 minutes (depending on network)
+
+**Estimated cost**: ~$70–75 USD for 40 GB ECS + bandwidth, varies by region and usage
 
 (<img width="777" height="560" alt="3" src="https://github.com/user-attachments/assets/5950115c-31d4-45e5-bd41-e6c320dbd738" />
 <img width="787" height="425" alt="2" src="https://github.com/user-attachments/assets/32cf1f43-93c5-4268-9ab6-af25966c3770" />
