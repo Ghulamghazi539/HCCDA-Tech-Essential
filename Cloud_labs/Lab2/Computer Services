@@ -1,1 +1,43 @@
+✅ 1."" Set Up a Lab on Huawei Cloud (General Approach)""
+To create a computer services lab, you typically need:
+
+Virtual machines (ECS – Elastic Cloud Server)
+
+Networking (VPC, security groups)
+
+Storage (EVS, OBS)
+
+Optional: AI services, container services, or cloud desktop.
+
+Step-by-Step Example: Build a Basic Lab on Huawei Cloud
+1.Create an Account: Huawei Cloud Signup
+
+2.Create a Virtual Private Cloud (VPC):
+
+Define subnets, security groups, and routing.
+
+3.Provision ECS Instances:
+
+Use Ubuntu/Windows servers
+
+Install development tools (VS Code, Jupyter, Python, etc.)
+4.Add Storage:
+
+Use Elastic Volume Service (EVS) or Object Storage Service (OBS).
+
+5.Enable Remote Access:
+
+Set up SSH (Linux) or RDP (Windows).
+
+6.Optional Services:
+
+Cloud Container Engine (CCE) – for Kubernetes.
+
+ModelArts – for AI/ML labs.
+
+Cloud Desktop (WKS) – virtual desktop environment.
+
+
+
+
 
