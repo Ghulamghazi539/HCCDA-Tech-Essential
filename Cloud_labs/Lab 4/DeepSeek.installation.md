@@ -1,5 +1,20 @@
 # DeepSeek Installation
 
+Huawei Cloud offers a "**Building a DeepSeek Inference System**" solution that automates provisioning and setup of the **DeepSeek‑R1 distilled model** on ECS instances via a CloudFormation-like stack. This lab typically takes **under 10 minutes** to deploy and about 5 minutes to initialize DeepSeek‑R1 using tools like Ollama 
+
+You’ll get a dedicated **Flexus X server**, a public IP, security groups, and pre-configured environment, accessible via **CloudShell** (**SSH port 22**)
+
+**🧩 2. Lab Components Overview**
+
+**ECS (Flexus X)** instance
+
+**Elastic IP (EIP**) for public access
+
+**Security group rules** with ports for Ollama service (by default port 11434) and Dify Web UI
+(port 3000)   
+
+**Open-source DeepSeek‑R1‑Distill models** (1.5B, 7B, or 8 B)
+
 This Lab provides a step-by-step guide for deploying the DeepSeek 1.5B large language model (LLM) on a HUAWEI CLOUD Elastic Cloud Server (ECS) using the Ollama framework.
 The process begins with preparing the necessary cloud environment. This involves creating a specific type of ECS in the AP-Singapore region. The recommended configuration is a pay-per-use c6.xlarge.2 instance, which provides 4 vCPUs and 8 GiB of RAM, running on a CentOS 8.2 64-bit image. A crucial step in this setup is configuring the network to include a public Elastic IP (EIP) with a high bandwidth of 100 Mbit/s. This is to ensure that the large model files can be downloaded efficiently without timing out. Once the ECS is created, the user logs in using CloudShell.
 
