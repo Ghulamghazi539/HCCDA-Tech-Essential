@@ -1,6 +1,25 @@
 # Storage Service
 
-This Project shows three fundamental storage services on HUAWEI CLOUD: Elastic Volume Service (EVS), Object Storage Service (OBS), and Scalable File Service (SFS). The lab exercises are designed to give users practical experience in provisioning, managing, and utilizing these services to meet various business needs.
+The Storage Services Lab on Huawei Cloud lets you practice hands-on how to use Huawei’s main cloud storage solutions:
+
+**Huawei Service	**                         ** Type of Storage	 **                                    ** Use Case**
+
+EVS (Elastic Volume Service)
+
+Block Storage	      Attach disks to virtual machines (ECS)
+
+**OBS (Object Storage Service)**	
+Object Storage	Store files, images, backups (like Google Drive/AWS S3)
+
+**SFS (Scalable File Service)**
+File Storage (NFS-based)	Shared access for multiple ECS instances
+
+These labs are part of Huawei's **Cloud Service Labs** under **KooLabs**, and they simulate real scenarios using Huawei’s live cloud dashboard.
+
+Huawei Service	Type of Storage	Use Case
+EVS (Elastic Volume Service)	Block Storage	Attach disks to virtual machines (ECS)
+OBS (Object Storage Service)	Object Storage	Store files, images, backups (like Google Drive/AWS S3)
+SFS (Scalable File Service)	File Storage (NFS-based)	Shared access for multiple ECS instances
 
 Elastic Volume Service (EVS) Practice
 The first part of the lab focuses on EVS, which provides persistent block-level storage for Elastic Cloud Servers (ECSs). EVS disks function similarly to physical hard drives and are used to expand storage capacity for servers. The exercise demonstrates the entire lifecycle of an EVS disk.
