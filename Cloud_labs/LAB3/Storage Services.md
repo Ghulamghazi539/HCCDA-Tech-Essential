@@ -15,7 +15,7 @@ File Storage (NFS-based)	Shared access for multiple ECS instances
 
 These labs are part of Huawei's **Cloud Service Labs** under **KooLabs**, and they simulate real scenarios using Huawei’s live cloud dashboard.
 
-**Elastic Volume Service (EVS)** 
+**Elastic Volume Service (EVS):** 
 
 The first part of the lab focuses on EVS, which provides persistent block-level storage for Elastic Cloud Servers (ECSs). EVS disks function similarly to physical hard drives and are used to expand storage capacity for servers. The exercise demonstrates the entire lifecycle of an EVS disk.
 
@@ -34,7 +34,7 @@ Finally, the EVS section introduces the use of snapshots. A snapshot captures th
 The Second section shifts focus to OBS, HUAWEI CLOUD's service for storing massive amounts of unstructured data, such as documents, images, and videos. Unlike the block storage of EVS, OBS is an object storage system. The exercise covers the basic operations within OBS.
 The fundamental unit in OBS is the "bucket," a container for data. The lab guides the user through creating a bucket, specifying its region, storage class (e.g., Standard), and access policy (e.g., Private). Once the bucket is created, the user learns how to upload files from their local computer into the bucket. The process for downloading objects from the bucket back to a local machine is also shown, as is the procedure for deleting files and folders within the bucket. This section provides a foundational understanding of how to use the OBS console for basic data management tasks.
 
-**Scalable File Service (SFS)** 
+**Scalable File Service (SFS):** 
 
 The final part of the document covers SFS, which provides high-performance, shared file storage. SFS is ideal for use cases where multiple servers need to access and modify the same set of files simultaneously.
 The exercise demonstrates how to create an "SFS Turbo" file system within the previously established VPC. After the file system is created, the main task is to mount it on both a Linux and a Windows ECS.
