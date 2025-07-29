@@ -8,63 +8,167 @@ Deploying an Enterprise Web Lab on Huawei Cloud involves creating a simulated en
 
 Deployment means making a web application available for users on a server, cloud platform, or internet. In a lab setup, you simulate real-world enterprise deployment for learning or testing.
 
-**1:****Initial Setup and Account Login******
+🏗️ Architecture Overview
 
-Before starting, log in to Huawei Cloud using the provided IAM lab account via Google Chrome. This ensures access to the necessary cloud environment without using personal credentials.
+User ───> Huawei Cloud ECS ───> Backend App (Node.js / Java / Django)
+                        │
+                        └─> OBS (Static Files / Images)
+                        └─> RDS (MySQL / PostgreSQL)
 
-**🏗️ Enterprise Web Lab Setup – Key Components**
+✅ Services Used
 
-**Component **  	                           ** Description  **          	                     ** Example Tools**
+**Huawei Cloud Service	**                                     ** Purpose**
 
-  Frontend                	                  What users see	                                 HTML, CSS, JS, React
+ECS (Elastic Cloud Server)	                    Host your backend/frontend app
 
-  Backend                            	       Handles logic & data	                        Node.js, Django, Java Spring Boot
+OBS (Object Storage)	                           Store files (e.g., images)
 
-  Database                            	     Stores information	                            MySQL, PostgreSQL, MongoDB
+RDS (Relational DB Service)                     	Manage databases securely
 
+ELB (Optional)	                                 Load balancing for scaling
 
-Version Control	                              Tracks changes	                                     Git, GitHub
+VPC	                                             Secure internal networking
 
-Server / Hosting	                          Where the app runs	                           Huawei ECS, Local VM, AWS EC2
+🧪 Step-by-Step Deployment Process
 
-  Web Server                                  Serves content	                                       NGINX, Apache
+**🔹 1. Create an ECS Instance**
 
-   CI/CD	                                    Auto deployment	                                GitHub Actions, Jenkins
-   
+**1**.Log in to Huawei Cloud.
 
-   🧪 Lab Deployment – Step-by-Step Explanation
-   
-   **🔹 Step 1: Develop the Web Application**
-   
-Code frontend and backend locally.
+**2**.Go to Elastic Cloud Server (ECS).
 
-Example: Create a login page (frontend) and a login API (backend).
+**3**.Click Create ECS.
 
-**🔹 Step 2: Push Code to GitHub**
+OS: Ubuntu Server 22.04
 
-Use Git to upload your project.
+Flavor: General-purpose (2vCPUs, 4GB RAM)
 
-git init
+Add to a **new VPC and security group**
 
-git add .
+Set inbound rules: allow SSH (port 22), HTTP (80), HTTPS (443)
 
-git commit -m "Initial Commit"
+**🔹 2. Connect to ECS**
 
-git remote add origin https://github.com/your-repo.git
+Use SSH from your terminal:
 
-git push -u origin main
+bash  
 
-**🔹 Step 3: Prepare Deployment Server**
+ssh your-user@your-ecs-public-ip
 
-Use Huawei ECS, Virtual Machine, or Docker.
+**🔹 3. Set Up the Web Environment**
 
-Update and install necessary software:
+Install necessary software:
+
+For Node.js App:
 
 bash
 
 sudo apt update
 
-sudo apt install nginx nodejs npm
+sudo apt install nodejs npm nginx -y
+
+**For Python/Django:**
+
+bash
+
+sudo apt install python3-pip python3-venv nginx -y
+
+
+**🔹 4. Deploy Your Application**
+bash
+
+git clone https://github.com/your-org/your-enterprise-app.git
+
+cd your-enterprise-app
+
+Install and start your app:
+
+bash
+
+npm install
+
+npm run build
+
+npm start  # or use pm2
+
+**🔹 5. Configure NGINX (Optional)**
+
+Serve your frontend app or reverse proxy backend.
+
+Edit config:
+
+bash
+
+sudo nano /etc/nginx/sites-available/default
+
+**Example:**
+
+bash
+
+server {
+    listen 80;
+    
+    server_name your-ecs-ip;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+**Restart:**
+
+bash
+
+sudo systemctl restart nginx
+
+**🔹 6. Use OBS for Static Files**
+
+Go to Object Storage Service (OBS) in Huawei Cloud.
+
+Create a bucket (e.g., your-web-bucket).
+
+Upload images, videos, or documents.
+
+Generate public URLs to access files in your app.
+
+**🔹 7. Use RDS for Database**
+
+Go to Relational Database Service (RDS).
+
+Create a MySQL or PostgreSQL instance.
+
+Connect it from your app using credentials and host.
+
+**📡 Access the Application**
+
+http://your-ecs-public-ip
+
+
+**✅ Benefits of Huawei Cloud for Enterprise Deployment**
+
+Scalability: Add more ECS or auto-scaling.
+
+Security: Secure groups and VPCs.
+
+Reliability: RDS backups and monitoring.
+
+Integration: Easy OBS + ECS + RDS integration
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
