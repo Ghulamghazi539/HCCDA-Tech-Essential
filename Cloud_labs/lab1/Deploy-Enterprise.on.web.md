@@ -145,6 +145,8 @@ Connect it from your app using credentials and host.
 
 http://your-ecs-public-ip
 
+<img width="637" height="316" alt="Screenshot 2025-07-28 191646" src="https://github.com/user-attachments/assets/201a1686-0b8d-4f3e-9ed6-f672bfa80e47" />
+
 
 **✅ Benefits of Huawei Cloud for Enterprise Deployment**
 
