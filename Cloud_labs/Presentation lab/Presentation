@@ -1,1 +1,24 @@
+Topic:
+Networking Services: VPC, Subnets, and Load Balancing
+
+🧠 Networking Services Overview
+🌐 1. Virtual Private Cloud (VPC)
+A VPC is a logically isolated network in the cloud where you can launch cloud resources (e.g., servers, databases). It gives full control over IP ranges, subnets, route tables, and gateways.
+
+🧱 2. Subnets
+Subnets divide a VPC into smaller network segments.
+
+Public Subnet: Exposed to the internet (e.g., web servers)
+
+Private Subnet: Internal communication only (e.g., databases)
+
+🛣️ 3. Custom Route Tables
+Route tables direct traffic between subnets, internet gateways, and NAT. You can define custom paths for specific subnets.
+
+🔐 4. Security Groups
+Security groups act like virtual firewalls controlling inbound and outbound traffic to ECS instances (virtual servers) based on rules.
+
+⚖️ 5. Load Balancer (ELB)
+An Elastic Load Balancer (ELB) automatically distributes incoming traffic across multiple backend servers, improving availability and scalability.
+
 
