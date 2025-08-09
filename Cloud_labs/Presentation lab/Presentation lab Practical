@@ -1,1 +1,120 @@
+Practical Lab Steps
+1. Create a Virtual Private Cloud (VPC)
+Go to VPC Dashboard in your cloud console.
+
+Click Create VPC.
+
+Choose:
+
+Name: My-VPC
+
+IPv4 CIDR block: 10.0.0.0/16
+
+Leave other options default.
+
+Click Create VPC.
+
+2. Create Two Subnets
+Subnet 1 (Public Subnet)
+
+Name: Public-Subnet
+
+VPC: My-VPC
+
+IPv4 CIDR block: 10.0.1.0/24
+
+Availability Zone: Choose one (e.g., us-east-1a).
+
+Subnet 2 (Private Subnet)
+
+Name: Private-Subnet
+
+VPC: My-VPC
+
+IPv4 CIDR block: 10.0.2.0/24
+
+Availability Zone: Choose another (e.g., us-east-1b).
+
+3. Configure Route Tables
+Public Route Table
+
+Create a new route table: Public-RT
+
+Associate it with Public-Subnet.
+
+Add a route:
+
+Destination: 0.0.0.0/0
+
+Target: Internet Gateway (create & attach one to My-VPC).
+
+Private Route Table
+
+Create another route table: Private-RT.
+
+Associate it with Private-Subnet.
+
+No internet route (or use NAT Gateway if outbound internet is needed).
+
+4. Create Security Groups
+Web Security Group (for Load Balancer / Public access)
+
+Allow:
+
+Inbound: HTTP (80) and HTTPS (443) from 0.0.0.0/0.
+
+Outbound: All traffic.
+
+App Security Group (for backend servers)
+
+Allow:
+
+Inbound: HTTP (80) from Web Security Group only.
+
+Outbound: All traffic.
+
+5. Launch Backend Servers (ECS/EC2)
+Launch at least two EC2 instances in the Private Subnet.
+
+Assign them the App Security Group.
+
+Install a basic web server (e.g., Apache or Nginx) to respond to traffic.
+
+6. Set Up Load Balancer (ELB)
+Go to Load Balancers → Create Application Load Balancer.
+
+Name: My-ALB.
+
+Scheme: Internet-facing.
+
+Network: Select My-VPC.
+
+Subnets: Select both public subnets.
+
+Security Group: Use Web Security Group.
+
+Create a Target Group:
+
+Type: Instance.
+
+Register both backend EC2 instances.
+
+Finish creating the ALB and note its DNS Name.
+
+7. Test
+Open the ALB DNS name in your browser.
+
+Traffic should automatically balance between your backend servers.
+
+✅ Result:
+You now have:
+
+Custom VPC with public and private subnets.
+
+Custom route tables controlling traffic.
+
+Security groups enforcing network rules.
+
+Load balancer distributing traffic to multiple backend servers.
+
 
